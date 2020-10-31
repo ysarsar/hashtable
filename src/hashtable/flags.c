@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrxy <mrxy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 02:15:49 by mrxy              #+#    #+#             */
-/*   Updated: 2020/10/30 06:24:53 by mrxy             ###   ########.fr       */
+/*   Updated: 2020/10/31 06:34:53 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,7 @@ void		l_flag(t_hash **h_table, char **args)
 			current = current->next;
 		}
 		if (!current)
-		{
-			ft_putstr_fd("42sh: hash: ", 2);
-			ft_putstr_fd(args[c], 2);
-			ft_putstr_fd(": not found\n", 2);
-		}
+			l_flag_error(args[c]);
 	}
 	c = 0;
 	while (++i < TABLE_SIZE && slot == -1)
@@ -49,11 +45,7 @@ void		l_flag(t_hash **h_table, char **args)
 		{
 			while (current)
 			{
-				ft_putstr("builtin hash -p ");
-				ft_putstr(current->value);
-				ft_putchar(' ');
-				ft_putstr(current->key);
-				ft_putchar('\n');
+				l_flag_print(current->value, current->key);
 				c++;
 				current = current->next;
 			}
@@ -88,19 +80,14 @@ void		t_flag(t_hash **h_table, char **args)
 void		p_flag(t_hash **h_table, char **args)
 {
 	int		i;
-	int		len;
 	int		slot;
 	char	path[4096];
 	t_hash	*hashtable;
 	t_ht	*current;
 
-	len = ft_argslen(args);
 	i = 2;
-	if (len == 2)
-	{
-		ft_putendl_fd("42sh: hash: -p: option requires an argument", 2);
-		ft_putendl_fd("42sh: usage: hash [-lr] [-p pathname] [-dt] [name ...]", 2);
-	}
+	if (ft_argslen(args) == 2)
+		ft_hash_error(NULL);
 	else
 	{
 		ft_strcpy(path, args[2]);
@@ -129,17 +116,3 @@ void		p_flag(t_hash **h_table, char **args)
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

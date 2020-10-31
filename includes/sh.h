@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sh.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrxy <mrxy@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 22:55:49 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/10/30 05:29:48 by mrxy             ###   ########.fr       */
+/*   Updated: 2020/10/31 06:33:17 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,7 +201,11 @@ void			del_hash(t_hash **h_table, char **args);
 int				delete_list(t_ht *list, t_ht **main_head, char *arg);
 void			d_flag(t_hash **h_table, char **args);
 void			t_flag(t_hash **h_table, char **args);
+void			p_flag(t_hash **h_table, char **args);
 void			search_hash(t_hash **h_table, char **args, int len);
 t_ht			*hash_p_insert(char *arg, char *path);
+void			ft_hash_error(char *str);
+void			l_flag_error(char *str);
+void			l_flag_print(char *value, char *key);
 
 #endif

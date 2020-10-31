@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mrxy <mrxy@student.42.fr>                  +#+  +:+       +#+         #
+#    By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 00:51:07 by ommadhi           #+#    #+#              #
-#    Updated: 2020/10/30 05:53:06 by mrxy             ###   ########.fr        #
+#    Updated: 2020/10/31 06:20:21 by ysarsar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS =  src/builtins.c\
 		src/hashtable/hashtable.c\
 		src/hashtable/hash_tools.c\
 		src/hashtable/flags.c\
+		src/hashtable/errors_print.c\
 
 
 OBJS    = $(SRCS:.c=.o)
@@ -49,15 +50,16 @@ CFLAGS		= -Wall -Wextra
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@make -C libft
-	gcc -g $(CFLAG) $(OBJS) libft/libft.a -o $(NAME) -lreadline
+	@echo "project under construction"
+	@make -s -C libft
+	@gcc -g $(CFLAG) $(OBJS) libft/libft.a -o $(NAME) -lreadline
 
 clean :
-	rm -rf $(OBJS) 
-	@make -C libft clean
+	@rm -rf $(OBJS) 
+	@make -s -C libft clean
 
 fclean : clean
-	rm -rf $(NAME)
-	@make -C libft fclean
+	@rm -rf $(NAME)
+	@make -s -C libft fclean
 
 re : fclean all

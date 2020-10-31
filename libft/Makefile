@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ommadhi <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 15:02:47 by ommadhi           #+#    #+#              #
-#    Updated: 2020/03/04 00:53:44 by ommadhi          ###   ########.fr        #
+#    Updated: 2020/10/31 05:55:26 by ysarsar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,9 +35,9 @@ CFLAGS = -g -Wall -Wextra -Werror
 all : $(NAME) $(OB)
 
 $(NAME) :$(OB)
-	ar rc libft.a $(OB)
+	@ar rc libft.a $(OB)
 clean :
-	    rm -f $(OB)
+	    @rm -f $(OB)
 fclean : clean
-	    rm -f $(NAME)
+	    @rm -f $(NAME)
 re : fclean all
