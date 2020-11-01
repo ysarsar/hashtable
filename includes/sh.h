@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 22:55:49 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/10/31 06:33:17 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/11/01 06:12:28 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,5 +207,12 @@ t_ht			*hash_p_insert(char *arg, char *path);
 void			ft_hash_error(char *str);
 void			l_flag_error(char *str);
 void			l_flag_print(char *value, char *key);
+void			l_flag_mini(char *str, t_ht *current);
+void			l_flag_valid(t_hash *hashtable, int slot);
+void			p_flag_mini(char **args, t_hash **h_table);
+void			p_flag_free(t_ht **h_list, char *str, char *path);
+int				free_node(t_ht **list);
+void			del_list_mini(t_ht **list, int len);
+void			search_hash_mini(t_hash **h_table, char **args);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 00:51:07 by ommadhi           #+#    #+#              #
-#    Updated: 2020/10/31 06:20:21 by ysarsar          ###   ########.fr        #
+#    Updated: 2020/11/01 06:01:40 by ysarsar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,8 @@ SRCS =  src/builtins.c\
 		src/hashtable/hash_tools.c\
 		src/hashtable/flags.c\
 		src/hashtable/errors_print.c\
+		src/hashtable/h_tools.c\
+		src/hashtable/hash_tools2.c\
 
 
 OBJS    = $(SRCS:.c=.o)

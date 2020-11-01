@@ -6,7 +6,7 @@
 /*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 02:15:49 by mrxy              #+#    #+#             */
-/*   Updated: 2020/10/31 06:34:53 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/11/01 06:20:53 by ysarsar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,43 +16,19 @@ void		l_flag(t_hash **h_table, char **args)
 {
 	t_hash	*hashtable;
 	t_ht	*current;
-	int		i;
 	int		c;
 	int		slot;
 
 	hashtable = *h_table;
-	i = -1;
 	c = 1;
 	slot = -1;
 	while (args[++c])
 	{
 		slot = hash_function(args[c]);
 		current = hashtable->list[slot];
-		while (current)
-		{
-			if (ft_strcmp(args[c], current->key) == 0)
-				break ;
-			current = current->next;
-		}
-		if (!current)
-			l_flag_error(args[c]);
+		l_flag_mini(args[c], current);
 	}
-	c = 0;
-	while (++i < TABLE_SIZE && slot == -1)
-	{
-		current = hashtable->list[i];
-		if (current)
-		{
-			while (current)
-			{
-				l_flag_print(current->value, current->key);
-				c++;
-				current = current->next;
-			}
-		}
-	}
-	if (!c && slot == -1)
-		ft_putendl_fd("42sh: hash table empty", 2);
+	l_flag_valid(hashtable, slot);
 }
 
 void		d_flag(t_hash **h_table, char **args)
@@ -80,39 +56,41 @@ void		t_flag(t_hash **h_table, char **args)
 void		p_flag(t_hash **h_table, char **args)
 {
 	int		i;
-	int		slot;
-	char	path[4096];
 	t_hash	*hashtable;
-	t_ht	*current;
 
 	i = 2;
+	hashtable = *h_table;
 	if (ft_argslen(args) == 2)
 		ft_hash_error(NULL);
 	else
+		p_flag_mini(args, h_table);
+}
+
+void		search_hash(t_hash **h_table, char **args, int len)
+{
+	t_hash	*hashtable;
+	t_ht	*current;
+	int		slot;
+	int		i;
+
+	hashtable = *h_table;
+	i = 1;
+	if (len == 3)
 	{
-		ft_strcpy(path, args[2]);
-		hashtable = *h_table;
-		if (!args[3])
-			return (aff_hashtable(h_table));
-		while (args[++i])
+		slot = hash_function(args[2]);
+		current = hashtable->list[slot];
+		if (!current)
+			l_flag_error(args[2]);
+		while (current)
 		{
-			slot = hash_function(args[i]);
-			current = hashtable->list[slot];
-			if (!current)
-				hashtable->list[slot] = hash_p_insert(args[i], path);
-			else
+			if (ft_strcmp(args[2], current->key) == 0)
 			{
-				while (current)
-				{
-					if (ft_strcmp(args[i], current->key) == 0)
-					{
-						free(current->value);
-						current->value = ft_strdup(path);
-						current->hits = 0;
-					}
-					current = current->next;
-				}
+				ft_putendl(current->value);
+				break ;
 			}
+			current = current->next;
 		}
 	}
+	else
+		search_hash_mini(h_table, args);
 }
