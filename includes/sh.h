@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sh.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrxy <mrxy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 22:55:49 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/11/01 06:12:28 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/11/23 18:50:41 by mrxy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 # include "ft_readline.h"
+//test builtin includes
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <stdint.h>
+# include <time.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <sys/sysmacros.h>
 
 # define TABLE_SIZE 1000
 
@@ -214,5 +222,36 @@ void			p_flag_free(t_ht **h_list, char *str, char *path);
 int				free_node(t_ht **list);
 void			del_list_mini(t_ht **list, int len);
 void			search_hash_mini(t_hash **h_table, char **args);
+
+/* Test functions */
+
+int				ft_test(char **args);
+
+//file test
+int				test_file(char **args);
+int				block_special(char *pathname);
+int				character_special(char *pathname);
+int				is_dir(char *pathname);
+int				file_exist(char *pathname);
+int				ft_setgid(char *pathname);
+int				is_symlink(char *pathname);
+int				is_fifo(char *pathname);
+int				is_file(char *pathname);
+int				readable_by_owner(char *pathname);
+int				is_socket(char *pathname);
+int				file_not_empty(char *pathname);
+int				ft_setuid(char *pathname);
+int				writeable_by_owner(char *pathname);
+int				executable_by_owner(char *pathname);
+
+//string and integer test
+int				test_string(char **args);
+int				ft_equal(char *str1, char *str2);
+int				ft_not_equal(char *str1, char *str2);
+int				ft_integer_equal(char *s1, char *s2);
+int				ft_integer_not_equal(char *s1, char *s2);
+int				ft_integer_ge(char *s1, char *s2);
+int				ft_integer_lt(char *s1, char *s2);
+int				ft_integer_le(char *s1, char *s2);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execute_simple_cmd.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrxy <mrxy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 16:13:27 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/03/11 08:16:20 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/11/23 19:04:02 by mrxy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static	int		check_builtins(char **args, t_env **env, t_hash **h_table)
 
 	envp = *env;
 	if (ft_strcmp(args[0], "exit") == 0)
-		return (2);
+		return (3);
 	else if (ft_strcmp(args[0], "env") == 0)
 		return (ft_env(*env));
 	else if (ft_strcmp(args[0], "setenv") == 0)
@@ -98,6 +98,8 @@ static	int		check_builtins(char **args, t_env **env, t_hash **h_table)
 	}
 	else if (ft_strcmp(args[0], "echo") == 0)
 		return (ft_echo(args));
+	else if (ft_strcmp(args[0], "test") == 0)
+		return (ft_test(args));
 	return (0);
 }
 
@@ -112,14 +114,15 @@ int				execute_simple_cmd(char *cmd, char **tabs, t_env **envp, t_hash **h_table
 		arr = ft_strsplit(cmd, -1);
 		if (!(args = ft_expantions(arr, envp)))
 			return (free_tabs2(arr, NULL));
-		if ((i = check_builtins(args, envp, h_table)))
+		if ((i = check_builtins(args, envp, h_table)) >= 0)
 		{
-			if (i == 2)
+			if (i == 3)
 			{
 				free_tabs(args);
 				ft_putendl_fd("exit", 2);
 				return (0);
 			}
+			i == 0 ? printf("Success\n") : printf("Failure\n");
 		}
 		else if (args[0][0] == '/' || args[0][0] == '.')
 			execute_without_path(args, tabs);

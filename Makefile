@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+         #
+#    By: mrxy <mrxy@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 00:51:07 by ommadhi           #+#    #+#              #
-#    Updated: 2020/11/01 06:01:40 by ysarsar          ###   ########.fr        #
+#    Updated: 2020/11/23 13:54:14 by mrxy             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,12 +40,15 @@ SRCS =  src/builtins.c\
 		src/hashtable/errors_print.c\
 		src/hashtable/h_tools.c\
 		src/hashtable/hash_tools2.c\
+		src/builtin_test/ft_test.c\
+		src/builtin_test/test_file.c\
+		src/builtin_test/test_string.c\
 
 
 OBJS    = $(SRCS:.c=.o)
 
 
-NAME		= 21sh
+NAME		= 42sh
 CC = gcc
 CFLAGS		= -Wall -Wextra
 
