@@ -6,7 +6,7 @@
 #    By: mrxy <mrxy@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/17 00:51:07 by ommadhi           #+#    #+#              #
-#    Updated: 2020/11/23 13:54:14 by mrxy             ###   ########.fr        #
+#    Updated: 2020/11/24 15:50:38 by mrxy             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,10 @@ SRCS =  src/builtins.c\
 		src/hashtable/hash_tools2.c\
 		src/builtin_test/ft_test.c\
 		src/builtin_test/test_file.c\
-		src/builtin_test/test_string.c\
+		src/builtin_test/test_string_and_numeric.c\
+		src/builtin_test/test_file_tools1.c\
+		src/builtin_test/test_file_tools2.c\
+		src/builtin_test/test_s_and_n_tools.c\
 
 
 OBJS    = $(SRCS:.c=.o)

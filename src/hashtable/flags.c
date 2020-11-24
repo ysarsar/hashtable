@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysarsar <ysarsar@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mrxy <mrxy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/26 02:15:49 by ysarsar           #+#    #+#             */
-/*   Updated: 2020/11/01 06:25:07 by ysarsar          ###   ########.fr       */
+/*   Updated: 2020/11/24 15:53:00 by mrxy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,6 @@ void		t_flag(t_hash **h_table, char **args)
 
 void		p_flag(t_hash **h_table, char **args)
 {
-	int		i;
-	t_hash	*hashtable;
-
-	i = 2;
-	hashtable = *h_table;
 	if (ft_argslen(args) == 2)
 		ft_hash_error(NULL);
 	else
@@ -71,10 +66,8 @@ void		search_hash(t_hash **h_table, char **args, int len)
 	t_hash	*hashtable;
 	t_ht	*current;
 	int		slot;
-	int		i;
 
 	hashtable = *h_table;
-	i = 1;
 	if (len == 3)
 	{
 		slot = hash_function(args[2]);

@@ -6,7 +6,7 @@
 /*   By: mrxy <mrxy@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 06:01:14 by mrxy              #+#    #+#             */
-/*   Updated: 2020/11/23 19:02:57 by mrxy             ###   ########.fr       */
+/*   Updated: 2020/11/24 15:39:47 by mrxy             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int		ft_test(char **args)
 		return (EXIT_FAILURE);
 	if (args_len == 2)
 		return (EXIT_SUCCESS);
-	//	File test
 	if (args[1][0] == '-')
 		return (test_file(args));
 	else if (ft_strcmp(args[1], "!") == 0)
@@ -35,7 +34,6 @@ int		ft_test(char **args)
 		}
 		return (EXIT_FAILURE);
 	}
-	//string and numeric test
 	else
 		return (test_string(args));
 }
